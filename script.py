@@ -1,5 +1,11 @@
 import random
 
+
+
+# TODO: Move the conversion logic outside the first if, the first if statement just needs the logic of inputing a candidate;
+#       The next block, the elif just needs the logic of taking one of the prefilled out candidates to be used
+#       Then the conversion and selection logic can exist outside of the loops once the prefereed method is selected
+
 # Welcome message to orientate the user
 print("\nWelcome to your assigned voting booth human.... Read through the menu and type a selection below...")
 
@@ -21,6 +27,7 @@ list_candidates = [
 # Empty list for once the candidates are selected for election
 election_candidates = []
 
+# List to hold random binary vote conversion
 vote_list = []
 
 # Flag for if the program is running
@@ -62,7 +69,8 @@ while True:
     # Logic to convert the candidate list into numbers for random number conversion
     for i in range(len(list_candidates)):
         list_candidates[i] = vote_list.append(i)
-        for i in vote_list:
+
+        for i in vote_list: # Random number conversion
             vote_list[i] = random.randint(0,1)
 
     print(vote_list)
