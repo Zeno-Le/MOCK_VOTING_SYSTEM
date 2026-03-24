@@ -2,9 +2,10 @@ import random
 
 
 
-# TODO: Move the conversion logic outside the first if, the first if statement just needs the logic of inputing a candidate;
+# TODO: 
 #       The next block, the elif just needs the logic of taking one of the prefilled out candidates to be used
 #       Then the conversion and selection logic can exist outside of the loops once the prefereed method is selected
+#       Shuffle the list_candidates list, using random.shuffle(), then take the first two indices for menu option 2 selecting a pre selected candidate
 
 # Welcome message to orientate the user
 print("\nWelcome to your assigned voting booth human.... Read through the menu and type a selection below...")
@@ -38,8 +39,8 @@ while True:
 
   # Menu options for the user to choose from
   print("-------------------------------------------")
-  print("\n1. Continue with our selected candidates.")
-  print("\n2. Enter your own candidates.")
+  print("\n1. Enter your own candidates.")
+  print("\n2. Continue with our selected candidates.")
   print("\n3. Exit the voting booth.")
   print("-------------------------------------------")
 
@@ -57,31 +58,12 @@ while True:
   if menu_selection == 1: # Option 1 user enters two candidates
 
     # Two inputs to be stored in our empty list from earlier with input sanitation 
-    first_canidate = input("Please enter your first candidate's name: ")
-    election_candidates.append(first_canidate)
+    first_candidate = input("Please enter your first candidate's name: ")
+    election_candidates.append(first_candidate)
 
-    second_canidate = input("Please enter your second candidate's name: ")
-    election_candidates.append(second_canidate)
-
-    # Random number to simulate binary voting
-    random_num = random.randint(0,1)
-
-    # Logic to convert the candidate list into numbers for random number conversion
-    for i in range(len(list_candidates)):
-        list_candidates[i] = vote_list.append(i)
-
-        for i in vote_list: # Random number conversion
-            vote_list[i] = random.randint(0,1)
-
-    print(vote_list)
-
-    print(f"\nNow starting the race with these two candidates: {election_candidates}")
-    print("Simulating the campaign trail...")
-    print("Simulating the primaries...")
-    print("Simulating the convenient lies...")
-    print("Simulating election night...")
-    print("And the winner is...")
- 
+    second_candidate = input("Please enter your second candidate's name: ")
+    election_candidates.append(second_candidate)
+    
 
     
     
@@ -93,3 +75,41 @@ while True:
     print("Exiting the program...")
     break
 
+  # Random number to simulate binary voting
+  random_num = random.randint(0,1)
+
+  # Logic to convert the candidate list into numbers for random number conversion
+  for i in range(len(list_candidates)):
+      vote_list.append(i)
+
+      for i in vote_list: # Random number conversion
+          vote_list[i] = random.randint(0,1)
+
+  print(vote_list) # test scaffolding
+
+  # Logic to count and tally votes
+  candidate_one_votes = vote_list.count(0)
+  candidate_two_votes = vote_list.count(1)
+
+
+  # Outputting the results
+  print(f"\nNow starting the race with these two candidates: {election_candidates}")
+  print("Simulating the campaign trail...")
+  print("Simulating the primaries...")
+  print("Simulating lies...")
+  print("Simulating election night...")
+  print(f"{first_candidate} has received {candidate_one_votes} of the total votes.")
+  print(f"{second_candidate} has received {candidate_two_votes}")
+  print("And the winner is...")
+
+  # Logic to check winner
+  if candidate_one_votes > candidate_two_votes:
+    print(first_candidate)
+  elif candidate_two_votes > candidate_one_votes:
+    print(second_candidate)
+  else:
+    print("It's a tie?!")
+
+
+
+    
