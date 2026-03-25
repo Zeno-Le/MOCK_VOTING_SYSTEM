@@ -64,13 +64,13 @@ while True:
     second_candidate = input("Please enter your second candidate's name: ")
     election_candidates.append(second_candidate)
     
+  elif menu_selection == 2: # Option 2 program selects candidates for the user
 
+    # Logic to shuffle the list of candidates and select two at 'random'abs
+    random.shuffle(list_candidates)
+    first_candidate = list_candidates[0]
+    second_candidate = list_candidates[1]
     
-    
-
-    print("Menu option 1") # scaffolding
-  elif menu_selection == 2:
-    print("menu otion 2")
   elif menu_selection == 3:
     print("Exiting the program...")
     break
