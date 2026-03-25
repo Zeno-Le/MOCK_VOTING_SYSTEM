@@ -1,13 +1,7 @@
 import random
 
+# TODO: Refactor using more pythonic programming
 
-
-# TODO: 
-#       The next block, the elif just needs the logic of taking one of the prefilled out candidates to be used
-#       Then the conversion and selection logic can exist outside of the loops once the prefereed method is selected
-#       Shuffle the list_candidates list, using random.shuffle(), then take the first two indices for menu option 2 selecting a pre selected candidate
-
-# Welcome message to orientate the user
 print("\nWelcome to your assigned voting booth human.... Read through the menu and type a selection below...")
 
 # List of candidates prefilled, feel free to change this to make your own list
@@ -85,12 +79,10 @@ while True:
       for i in vote_list: # Random number conversion
           vote_list[i] = random.randint(0,1)
 
-  print(vote_list) # test scaffolding
-
+  
   # Logic to count and tally votes
   candidate_one_votes = vote_list.count(0)
   candidate_two_votes = vote_list.count(1)
-
 
   # Outputting the results
   print(f"\nNow starting the race with these two candidates: {election_candidates}")
